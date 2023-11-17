@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum program</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+   <div class="box">
+     <div class="mainbox">
+        <div class="innerbox" key-value="65">
+            <h2>A</h2>
+        </div>
+        <div class="innerbox" key-value="83">
+            <h2>S</h2>
+        </div>
+        <div class="innerbox" key-value="68">
+            <h2>D</h2>
+        </div>
+        <div class="innerbox" key-value="70">
+            <h2>F</h2>
+        </div>
+        <div class="innerbox" key-value="74">
+            <h2>J</h2>
+        </div>
+     </div>
+   </div>
+   <audio key-value="65" class="audio-1" src="files/typical-trap-loop-2b-130751.mp3"> </audio>
+   <audio key-value="83" class="audio-2" src="files/hip-hop-beat-by-arm-saj-1-6867.mp3"> </audio>
+   <audio key-value="68" class="audio-2" src="files/whoosh-drum-hits-169007.mp3"> </audio>
+   <audio key-value="70" class="audio-2" src="files/heroic-intro-21468.mp3"> </audio>
+   <audio key-value="74" class="audio-2" src="files/amen-break-no-copyright-remake-120bpm-25924.mp3"> </audio>
+</body>
+<script>
+
+       
+       function playkey(e){
+       
+       const audio = document.querySelector(`audio[key-value="${e.keyCode}"]`)
+       const datas = document.querySelector(`.innerbox[key-value="${e.keyCode}"]`)
+       if(!audio) return ;
+       audio.currentTime = 0;
+       audio.play();
+       datas.classList.add('active')
+       console.log(e)
+      
+
+    }
+
+
+    function removeTransition(e){
+    // if(e.propertyName !== 'tranform') return;
+    // console.log(e)
+    this.classList.remove('active')
+   
+    }
+
+    const keys = document.querySelectorAll('.innerbox');
+    keys.forEach(key => (key.addEventListener('transitionend',removeTransition)))
+    window.addEventListener('keydown',playkey);
+
+
+
+</script>
+</html>

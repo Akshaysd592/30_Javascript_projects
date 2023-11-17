@@ -1,0 +1,35 @@
+.box {
+  height: 100vh;
+  width: 100vw;
+  background: url("files//sunset-1373171.jpg");
+}
+
+.innerbox{
+    color: black;
+    font-size: 30px;
+    text-transform: uppercase;
+    background-color: aqua;
+    height: 100px;
+    width: 100px;
+    transition:all 0.5s;
+    border:10px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.active{
+   border-color: yellow;
+   transform: scale(1.1);
+
+}
+
+.mainbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap:15px;
+    
+}
