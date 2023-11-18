@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>playing with css using js</title>
+    <style>
+        :root{
+            --space:10px;
+            --blur:10px;
+            --color:#ffc600;
+        }
+        img{
+            filter:blur(var(--blur));
+            padding: var(--space);
+            background:var(--color);
+            
+        }
+
+        .h1{
+            color:var(--color)
+        }
+
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            flex-direction: column;
+            gap: 8px;
+            background: #193549;
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-size: 25px;
+            font-weight: 100;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <h2>Update the css variables with <span class="h1">Js</span></h2>
+    <div style="padding-bottom: 80px;">
+        <lable for="space">Spacing</lable>
+         <input type="range" name="space" min="10" max="200" value="20" data-sizing="px"/>
+        <lable for="blur">Blur</lable>
+        <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px"/>
+        <lable for="color">Color</lable>
+        <input type="color" name="color"  value="#ffc600"/>
+    </div>
+    <img src="neom-9hWJs7iblh8-unsplash.jpg" height="400px" width="600px" loading="lazy"/>
+</div>
+</body>
+<script>
+    const inputs = document.querySelectorAll("input");
+    
+     function handleUpdate(){
+        const suffix = this.dataset.sizing || ''; // suffix such as px
+        document.documentElement.style.setProperty(`--${this.name}`,this.value +suffix);
+
+     }
+
+     inputs.forEach(input => input.addEventListener('change',handleUpdate))
+     inputs.forEach(input => input.addEventListener('mousemove',handleUpdate))
+
+</script>
+</html>

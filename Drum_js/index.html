@@ -36,7 +36,6 @@
 
        
        function playkey(e){
-       
        const audio = document.querySelector(`audio[key-value="${e.keyCode}"]`)
        const datas = document.querySelector(`.innerbox[key-value="${e.keyCode}"]`)
        if(!audio) return ;
@@ -44,7 +43,6 @@
        audio.play();
        datas.classList.add('active')
        console.log(e)
-      
 
     }
 
@@ -53,7 +51,6 @@
     // if(e.propertyName !== 'tranform') return;
     // console.log(e)
     this.classList.remove('active')
-   
     }
 
     const keys = document.querySelectorAll('.innerbox');
